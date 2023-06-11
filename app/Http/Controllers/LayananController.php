@@ -14,7 +14,7 @@ class LayananController extends Controller
      */
     public function index()
     {
-        $data = Layanan::orderBy('nama', 'asc')->paginate(10);
+        $data = Layanan::orderBy('created_at', 'asc')->paginate(10);
         return view('layanan.index')->with('data', $data);
     }
 

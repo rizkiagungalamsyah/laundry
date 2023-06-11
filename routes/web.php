@@ -37,4 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('pengeluaran/data', [PengeluaranController::class, 'data']);
     Route::resource('pengeluaran', PengeluaranController::class);
 
+    Route::get('transaksi', function () {
+        return view('transaksi.index');
+    });
+
 });

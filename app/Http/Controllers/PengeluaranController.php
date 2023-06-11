@@ -50,9 +50,6 @@ class PengeluaranController extends Controller
         ]);
 
         $data = [
-            'nama' => $request->nama,
-            'nomor_tlp' => $request->nomor_tlp,
-            'alamat' => $request->alamat,
             'pengeluaran' => $request->pengeluaran,
             'jumlah' => $request->jumlah,
             'nominal' => $request->nominal,
@@ -82,7 +79,9 @@ class PengeluaranController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Pengeluaran::where('id', $id)->first();
+        return view('pengeluaran.edit')->with('data', $data);
+
     }
 
     /**
@@ -94,7 +93,28 @@ class PengeluaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'pengeluaran' => 'required',
+            'jumlah' => 'required',
+            'nominal' => 'required',
+            'deskripsi' => 'required',
+        ], [
+            'pengeluaran.required' => 'Pengeluaran Tidak Boleh Kosong',
+            'jumlah.required' => 'Jumlah Tidak Boleh Kosong',
+            'nominal.required' => 'Nominal Tidak Boleh Kosong',
+            'deskripsi.required' => 'Deskripsi Tidak Boleh Kosong',
+        ]);
+
+        $data = [
+            'pengeluaran' => $request->pengeluaran,
+            'jumlah' => $request->jumlah,
+            'nominal' => $request->nominal,
+            'deskripsi' => $request->deskripsi,
+        ];
+
+        Pengeluaran::where('id', $id)->update($data);
+        return redirect()->to('pengeluaran')->with('success', 'Berhasil Update Data');
+
     }
 
     /**
@@ -105,6 +125,9 @@ class PengeluaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pengeluaran = Pengeluaran::find($id);
+        $pengeluaran->delete();
+
+        return redirect()->to('pengeluaran')->with('success', 'Berhasil Menghapus Data');
     }
 }

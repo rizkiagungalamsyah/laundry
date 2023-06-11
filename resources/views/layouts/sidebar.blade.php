@@ -38,7 +38,7 @@
             </ul>
         </li>
 
-        <li><a href="#"><i class='bx bxs-cart-download icon'></i> Pembelian</a></li>
+        <li><a href="transaksi"><i class='bx bxs-cart-download icon'></i> Transaksi</a></li>
         <li><a href="#"><i class='bx bxs-cart-add icon'></i> Penjualan</a></li>
         <li><a href="#"><i class='bx bx-table icon'></i> Transaksi Lama</a></li>
         <li><a href="#"><i class='bx bx-table icon'></i> Transaksi Baru</a></li>

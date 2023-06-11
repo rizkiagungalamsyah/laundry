@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    box-shadow: none !important;
 }
 
 :root {
@@ -231,7 +232,7 @@ nav .form-group input {
     transition: all 0.3s ease;
 }
 nav .form-group input:focus {
-    box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
+    box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue) !important;
 }
 nav .form-group .icon {
     position: absolute;
@@ -288,7 +289,7 @@ nav .profile .profile-link {
     right: 0;
     background: var(--light);
     padding: 10px 0;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1) !important;
     border-radius: 10px;
     width: 160px;
     opacity: 0;
@@ -351,7 +352,7 @@ main .info-data .card {
     border-width: 0;
     border-radius: 10px;
     background: var(--light);
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.05);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.05) !important;
 }
 main .card .head {
     display: flex;
@@ -408,7 +409,7 @@ main .data .content-data {
     padding: 20px;
     background: var(--light);
     border-radius: 10px;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1) !important;
 }
 main .content-data .head {
     display: flex;
@@ -436,7 +437,7 @@ main .content-data .head .menu-link {
     width: 140px;
     background: var(--light);
     border-radius: 10px;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1) !important;
     padding: 10px 0;
     z-index: 100;
     opacity: 0;
@@ -552,7 +553,7 @@ main .form-group input {
     width: 100%;
 }
 main .form-group input:focus {
-    box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
+    box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue) !important;
 }
 main .btn-send {
     padding: 0 16px;
@@ -596,4 +597,11 @@ a .nama {
 
 .tctr {
     text-align: center;
+}
+
+.ftr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
 }

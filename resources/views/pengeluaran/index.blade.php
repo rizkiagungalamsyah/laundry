@@ -19,7 +19,7 @@
             </div>
             @include('layouts.alert')
             <div class="box-body table-responsive">
-                <table class="table table-bordered">
+                <table id="data-table1" class="table table-bordered">
                     <thead>
                         <th class="tctr" style="width: 3%">No</th>
                         <th style="width: 15%">Tanggal Pengeluaran</th>
@@ -27,7 +27,7 @@
                         <th style="width: 5%">Jumlah</th>
                         <th style="width: 10%">Nominal</th>
                         <th>Deskripsi</th>
-                        <th class="tctr" style="width: 8%"><i class="bx bx-cog"></i></th>
+                        <th class="tctr" style="    width: 8%"><i class="bx bx-cog"></i></th>
                     </thead>
                     <tbody>
                         <?php $i = $data->firstItem(); ?>
@@ -40,9 +40,10 @@
                                 <td>Rp {{ format_rupiah($pengeluaran->nominal) }}</td>
                                 <td>{{ $pengeluaran->deskripsi }}</td>
                                 <td class="ctr tctr">
-                                    <a href='{{ url('customer/id/edit') }}' class="btn btn-primary btn-sm"><span
-                                            class="bx bx-edit"></span></a>
-                                    <form class="d-inline" action="id" method="post">
+                                    <a href='{{ url('pengeluaran/' . $pengeluaran->id . '/edit') }}'
+                                        class="btn btn-primary btn-sm"><span class="bx bx-edit"></span></a>
+                                    <form class="d-inline" action="{{ url('pengeluaran/' . $pengeluaran->id) }}"
+                                        method="post">
 
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
@@ -88,4 +89,13 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(function() {
+
+            var table = $('#data-table1').DataTable({
+
+            });
+
+        });
+    </script>
 @endsection
