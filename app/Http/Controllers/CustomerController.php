@@ -16,7 +16,6 @@ class CustomerController extends Controller
     {
         $data = Customer::orderBy('nama', 'asc')->paginate(10);
         return view('customer.index')->with('data', $data);
-
     }
 
     /**
@@ -54,7 +53,6 @@ class CustomerController extends Controller
         ];
         Customer::create($data);
         return redirect()->to('customer')->with('success', 'Berhasil Menambahkan Data');
-
     }
 
     /**
@@ -76,7 +74,8 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Customer::where('id', $id)->first();
+        return view('customer.edit')->with('data', $data);
     }
 
     /**
@@ -88,7 +87,24 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'nomor_tlp' => 'required',
+            'alamat' => 'required',
+        ], [
+            'nama.required' => 'Nama Tidak Boleh Kosong',
+            'nomor_tlp.required' => 'Nomor Telephone Tidak Boleh Kosong',
+            'alamat.required' => 'Alamat Tidak Boleh Kosong',
+        ]);
+
+        $data = [
+            'nama' => $request->nama,
+            'nomor_tlp' => $request->nomor_tlp,
+            'alamat' => $request->alamat,
+
+        ];
+        Customer::where('id', $id)->update($data);
+        return redirect()->to('customer')->with('success', 'Berhasil Update Data');
     }
 
     /**
@@ -103,6 +119,5 @@ class CustomerController extends Controller
         $customer->delete();
 
         return redirect()->to('customer')->with('success', 'Berhasil Menghapus Data');
-
     }
 }

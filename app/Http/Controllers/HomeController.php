@@ -24,6 +24,9 @@ class HomeController extends Controller
     public function index()
     {
         $count_customer = Customer::count();
-        return view('admin.dashboard', compact('count_customer'));
+        $count_layanan = Layanan::count();
+        $count_pengeluaran = Pengeluaran::count();
+
+        return view('admin.dashboard', compact('count_customer','count_layanan','count_pengeluaran'));
     }
 }
